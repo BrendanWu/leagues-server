@@ -1,0 +1,12 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+.env
+# dependencies
+/node_modules
+/dist
+yarn.lock
+
+/build
+debug.log
+
+.vscode
+node_modules
