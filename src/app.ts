@@ -44,7 +44,6 @@ app.use("/site", sites);
 //route integrated in client (see modification process)
 app.use("/api/mail", mailRoutes);
 
-server.listen(process.env.PORT || 3000, () => {
-
-  console.info("Server started on port %s.", process.env.PORT || 3000);
+server.listen(process.env.PORT || 5000, () => {
+  console.info("Server started on port %s.", process.env.PORT || 5000);
 });

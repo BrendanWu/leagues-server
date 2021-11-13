@@ -14,6 +14,19 @@ const UserProfileSchema: Schema = new Schema(
       type: String,
       required: true,
     },
+    phone: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    address: {
+      type: String,
+    },
+    country: {},
     qrdata: [
       {
         type: Schema.Types.ObjectId,
