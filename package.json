@@ -9,7 +9,8 @@
     "tsc": "tsc",
     "postinstall": "npm run build",
     "deploy": "git add . && git commit -m Heroku && git push heroku main",
-    "prod": "node build/app.js"
+    "prod": "node build/app.js",
+    "heroku-postbuild": "npm install && npm run build"
   },
   "license": "ISC",
   "dependencies": {
