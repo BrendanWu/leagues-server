@@ -9,6 +9,7 @@ export interface IUserRegister extends Document {
   state?: string;
   country?: string;
   address?: string;
+  image?: string;
   qrdata: IQrData[];
 }
 

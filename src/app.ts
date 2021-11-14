@@ -29,7 +29,7 @@ mongoose
   })
   .then(() => console.log("MongoDB connected " + MongoURI))
   .catch((err: string) => console.log(err));
-
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());

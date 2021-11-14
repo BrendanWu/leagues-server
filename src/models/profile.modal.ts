@@ -26,7 +26,8 @@ const UserProfileSchema: Schema = new Schema(
     address: {
       type: String,
     },
-    country: {},
+    country: { type: String },
+    image: { type: String },
     qrdata: [
       {
         type: Schema.Types.ObjectId,
