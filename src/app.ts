@@ -26,7 +26,7 @@ mongoose
   })
   .then(() => console.log("MongoDB connected " + MongoURI))
   .catch((err: string) => console.log(err));
-
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
@@ -40,9 +40,11 @@ app.use("/site", sites);
 app.use("/api/mail", mailRoutes);
 app.use('/blog', blogRoutes)
 
+
 app.use("/playgrounds", playgrounds);
 
-server.listen(PORT, () => {
 
-  console.info("Server started on port %s.", PORT);
+server.listen(process.env.PORT || 5000, () => {
+  console.info("Server started on port %s.", process.env.PORT || 5000);
+
 });

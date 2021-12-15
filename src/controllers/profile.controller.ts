@@ -18,6 +18,11 @@ export const registerProfile = (req: Request, res: Response) => {
         name,
         email,
         password,
+        phone: "",
+        city: "",
+        state: "",
+        country: "",
+        address: "",
       });
 
       bcrypt.genSalt(12, (err: any, salt: any) =>
@@ -46,7 +51,10 @@ export interface LoginRequestType {
   password: string;
 }
 
-export const loginProfile = (req: {body:LoginRequestType}, res: Response) => {
+export const loginProfile = (
+  req: { body: LoginRequestType },
+  res: Response
+) => {
   // let uri =
   //   req.body.email === "jimmy11@gmail.com"
   //     ? "mongodb+srv://joharibalti1996:is119821885@cluster0.jjj5l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -140,7 +148,11 @@ export const updateprofile = (req: Request, res: Response) =>
         profile.name = req.body.name;
 
         profile.email = req.body.email;
-
+        profile.phone = req?.body?.phone;
+        profile.city = req?.body?.city;
+        profile.state = req?.body?.state;
+        profile.country = req?.body?.country;
+        profile.address = req?.body?.address;
         profile
           .save()
           .then((profile) => {

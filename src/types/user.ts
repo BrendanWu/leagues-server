@@ -4,6 +4,12 @@ export interface IUserRegister extends Document {
   name: string;
   email: string;
   password: string;
+  phone?: string;
+  city?: string;
+  state?: string;
+  country?: string;
+  address?: string;
+  image?: string;
   qrdata: IQrData[];
 }
 
