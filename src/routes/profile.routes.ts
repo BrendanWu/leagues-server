@@ -11,11 +11,12 @@ import {
   logout,
 } from "../controllers/profile.controller";
 import checkAuth from "../utils/auth_check";
-import { sendBitcoin } from "../controllers/bitCoinTransaction";
-const router: Router = Router();
-router.route("/sendcoin").post(sendBitcoin);
-router.route("/register").post(registerProfile);
+import { uploadImage } from "../controllers/uploadImage.Controller";
 
+const router: Router = Router();
+
+router.route("/register").post(registerProfile);
+router.route("/upload/:id").post(checkAuth, uploadImage);
 router.route("/login").post(loginProfile);
 router.route("/logout").get(logout);
 
