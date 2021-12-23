@@ -101,6 +101,6 @@ app.use("/site", sites_routes_1.default);
 app.use("/api/mail", lifted_email_routes_1.default);
 app.use('/blog', blog_routes_1.default);
 app.use("/playgrounds", playgrounds_routes_1.default);
-server.listen(process.env.PORT || 5000, () => {
-    console.info("Server started on port %s.", process.env.PORT || 5000);
+server.listen(PORT, () => {
+    console.info("Server started on port %s.", PORT);
 });

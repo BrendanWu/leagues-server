@@ -43,6 +43,7 @@ router.post("/createNewPost", (req, res, next) => {
         const markdownString = req.body.markdownString;
         const p = (0, Post_1.default)(Object.assign(Object.assign({}, metaForm), { markdownString }));
         p.save();
+        console.log(p);
         res.json({ success: true, post: p });
     }
     catch (error) {
@@ -54,6 +55,20 @@ router.get("/getPostsByCategory/:category", (req, res, next) => __awaiter(void 0
     console.log(category);
     try {
         const posts = yield Post_1.default.find({ category });
+        res.json({ success: true, posts });
+    }
+    catch (error) {
+        res.json({ success: false, msg: JSON.stringify(error) });
+    }
+}));
+router.patch("/updatePostById", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const _id = req.body._id;
+    const metaForm = req.body.metaForm;
+    const markdownString = req.body.markdownString;
+    try {
+        const newPost = yield Post_1.default.findOneAndUpdate({ _id }, Object.assign(Object.assign({}, metaForm), { markdownString }), { new: true });
+        console.log(newPost);
+        const posts = yield Post_1.default.find();
         res.json({ success: true, posts });
     }
     catch (error) {
