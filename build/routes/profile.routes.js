@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const profile_controller_1 = require("../controllers/profile.controller");
+const auth_check_1 = __importDefault(require("../utils/auth_check"));
+const uploadImage_Controller_1 = require("../controllers/uploadImage.Controller");
+const router = (0, express_1.Router)();
+router.route("/register").post(profile_controller_1.registerProfile);
+router.route("/upload/:id").post(auth_check_1.default, uploadImage_Controller_1.uploadImage);
+router.route("/login").post(profile_controller_1.loginProfile);
+router.route("/logout").get(profile_controller_1.logout);
+router.route("/getprofiles").get(auth_check_1.default, profile_controller_1.getprofile);
+router.route("/getprofile/:id").get(auth_check_1.default, profile_controller_1.getprofilebyid);
+router.route("/addprofile").post(auth_check_1.default, profile_controller_1.addprofile);
+router.route("/deleteprofile/:id").delete(auth_check_1.default, profile_controller_1.deleteprofile);
+router.route("/updateprofile/:id").post(auth_check_1.default, profile_controller_1.updateprofile);
+exports.default = router;

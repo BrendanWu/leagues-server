@@ -7,7 +7,6 @@
 /dist
 yarn.lock
 
-/build
 debug.log
 
 .vscode
