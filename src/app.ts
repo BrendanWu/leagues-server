@@ -90,11 +90,9 @@ app.use("/site", sites);
 app.use("/api/mail", mailRoutes);
 app.use('/blog', blogRoutes)
 
-
 app.use("/playgrounds", playgrounds);
 
 
-server.listen(process.env.PORT || 5000, () => {
-  console.info("Server started on port %s.", process.env.PORT || 5000);
-
+server.listen(PORT, () => {
+  console.info("Server started on port %s.", PORT);
 });
